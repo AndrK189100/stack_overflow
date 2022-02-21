@@ -16,7 +16,7 @@ def get_questions_python(_url):
 
     while True:
         resp = requests.get(url=_url, params=params, timeout=20).json()
-        if not 'items' in resp:
+        if 'items' not in resp:
             return buffer_items
         buffer_items += resp['items']
         if resp['has_more']:
